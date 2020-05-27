@@ -1,0 +1,251 @@
+% Credits are indicated where needed. The general idea is based on a template by Vel (vel@LaTeXTemplates.com) and Frits Wenneker.
+
+\documentclass[11pt, a4paper]{article} % General settings in the beginning (defines the document class of your paper)
+% 11pt = is the font size
+% A4 is the paper size
+% “article” is your document class
+
+%----------------------------------------------------------------------------------------
+%	Packages
+%----------------------------------------------------------------------------------------
+
+% Necessary
+\usepackage[german,english]{babel} % English and German language 
+\usepackage{booktabs} % Horizontal rules in tables 
+% For generating tables, use “LaTeX” online generator (https://www.tablesgenerator.com)
+\usepackage{comment} % Necessary to comment several paragraphs at once
+\usepackage[utf8]{inputenc} % Required for international characters
+\usepackage[T1]{fontenc} % Required for output font encoding for international characters
+\usepackage{listings}
+
+\lstset{basicstyle=\linespread{0.8}\ttfamily\footnotesize,
+    xleftmargin=0.7cm,
+    frame=tlbr, framesep=0.2cm, framerule=0pt,
+}
+\lstset{frame=single}
+
+% Might be helpful
+\usepackage{amsmath,amsfonts,amsthm} % Math packages which might be useful for equations
+\usepackage{tikz} % For tikz figures (to draw arrow diagrams, see a guide how to use them)
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,arrows} % Adding libraries for arrows
+\usetikzlibrary{decorations.pathreplacing} % Adding libraries for decorations and paths
+\usepackage{tikzsymbols} % For amazing symbols ;) https://mirror.hmc.edu/ctan/graphics/pgf/contrib/tikzsymbols/tikzsymbols.pdf 
+\usepackage{blindtext} % To add some blind text in your paper
+
+\usepackage{url}
+\usepackage{enumerate}
+%---------------------------------------------------------------------------------
+% Additional settings
+%---------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+% Define your margins
+\usepackage{geometry} % Necessary package for defining margins
+
+\geometry{
+	top=2cm, % Defines top margin
+	bottom=2cm, % Defines bottom margin
+	left=2.2cm, % Defines left margin
+	right=2.2cm, % Defines right margin
+	includehead, % Includes space for a header
+	%includefoot, % Includes space for a footer
+	%showframe, % Uncomment if you want to show how it looks on the page 
+}
+
+\setlength{\parindent}{15pt} % Adjust to set you indent globally 
+
+%---------------------------------------------------------------------------------
+% Define your spacing
+\usepackage{setspace} % Required for spacing
+% Two options:
+\linespread{1}
+%\onehalfspacing % one-half-spacing linespread
+
+%----------------------------------------------------------------------------------------
+% Define your fonts
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+
+\usepackage{XCharter} % Use the XCharter font
+
+
+%---------------------------------------------------------------------------------
+% Define your headers and footers
+
+\usepackage{fancyhdr} % Package is needed to define header and footer
+\pagestyle{fancy} % Allows you to customize the headers and footers
+
+%\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Removes the section number from the header when \leftmark is used
+
+% Headers
+\lhead{} % Define left header
+\chead{\textit{}} % Define center header - e.g. add your paper title
+\rhead{} % Define right header
+
+% Footers
+\lfoot{} % Define left footer
+\cfoot{\footnotesize \thepage} % Define center footer
+\rfoot{ } % Define right footer
+
+%---------------------------------------------------------------------------------
+%	Add information on bibliography
+\usepackage{natbib} % Use natbib for citing
+\usepackage{har2nat} % Allows to use harvard package with natbib https://mirror.reismil.ch/CTAN/macros/latex/contrib/har2nat/har2nat.pdf
+
+% For citing with natbib, you may want to use this reference sheet: 
+% http://merkel.texture.rocks/Latex/natbib.php
+
+%---------------------------------------------------------------------------------
+% Add field for signature (Reference: https://tex.stackexchange.com/questions/35942/how-to-create-a-signature-date-page)
+\newcommand{\signature}[2][5cm]{%
+  \begin{tabular}{@{}p{#1}@{}}
+    #2 \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Signature}} \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Place, Date}}
+  \end{tabular}
+}
+%---------------------------------------------------------------------------------
+%	General information
+%---------------------------------------------------------------------------------
+\title{grepo - Repository group support} % Adds your title
+\author{Srini, rs@toprllc.com}
+\date{\small \today} % Adds the current date to your “cover” page; leave empty if you do not want to add a date
+
+
+%---------------------------------------------------------------------------------
+%	Define what’s in your document
+%---------------------------------------------------------------------------------
+
+\begin{document}
+%\newfontfamily\listingsfont[Scale=.7]{Menlo}
+
+% If you want a cover page, uncomment "\input{coverpage.tex}" and uncomment "\begin{comment}" and "\end{comment}" to comment the following lines
+%\input{coverpage.tex}
+
+%\begin{comment}
+\maketitle % Print your title, author name and date; comment if you want a cover page 
+%\end{comment}
+
+%----------------------------------------------------------------------------------------
+% Introduction
+%----------------------------------------------------------------------------------------
+\setcounter{page}{1} % Sets counter of page to 1
+
+\section{Introduction} % Add a section title
+
+Projects with many components and developers are best managed with distinct independent source code repositories. At a high level, there are
+the public repositories developed outside the team which are just used; the components that are unique to the project then may be viewed as 
+private.
+
+The public repositories then are primarily replicated for usage, prepared (eg. built) and periodically refreshed. The private repositories on the other hand go through an active development cycle. In git parlance, this would include creating new branches, merging, tagging and of course publishing. Specific sub projects thus may well span several repositories.
+
+This tool enables developers manage their \textbf{projectlets} as a group. For example create a new \textbf{feature branch} on a set of related repositories and finally push or publish the branch as a group.
+
+\url{https://source.android.com/setup/develop/repo} is such a tool which serves as a pattern for this projectlet. The goals are simplified somewhat:
+
+\begin{itemize}
+    \item \textbf{git} is the only source code control system supported.
+    \item Publishing updates, tags etc are to the original source repositories. The complete link to the repositories and the histories is maintained.
+    \item Commands mirror their \textbf{git} equivalents. 
+    \item Project configuration is provided in \textbf{yaml} format.
+\end{itemize}
+
+\subsection{Typical use cases}
+
+Developers of embedded systems using \textbf{yocto} or \textbf{embos} have to manage their environment as outlined above. Their own application might be split into several repositories while depending heavily on the platform libraries spread over numerous other repositories. Both these groups are evolving - the public ones presumably changing slower than the private ones.
+
+\section{Specifications}
+
+\subsection{Configuration}
+
+A developer creates a Project configuration file eg. project.yaml listing all the public and private repositories. Uses the grepo tool to setup the initial checkout of the development base. For each feature, a feature branch is created in all the repositories. Development may affect some of the repositories while other repositories may not be affected at all.
+
+Operations such as tagging, publishing all are performed in one transaction. 
+
+Publishing of the feature branch to the origin is predicated on actual changes. Repos which did not have any changes will not be published to the origin.
+
+\begin{lstlisting}[caption=Example Project.yaml]
+public:
+    workarea: ".worklib"
+    reference: "V01.00"
+    projects:
+      - repourl: "git@gitlab.com:projtemplates/go.git"
+        reference: "master"
+        path: "go/lib"
+        build: "make setup all"
+private:
+    workarea: ".work"
+    server: "git@gitlab.com:"
+    reference: "tagx02"
+    projects:
+      - repo: "RajaSrinivasan/icm.git"
+        path: "icm"
+        reference: "V01.06"
+      - repo: "RajaSrinivasan/codex.git"
+        path: "codex"
+        reference: "v0.1.0-B"
+        build: "make setup all test"
+      - repourl: "https://github.com/RajaSrinivasan/srctrace.git"
+        path: "tools"
+      - repourl: "git@github.com:repotrace.git"
+        path: "tools"
+\end{lstlisting}
+
+\paragraph{Project Groups} The sample configuration lists two project groups: public and private. \textbf{public} projects are considered reference only and thus cloned and then detached from the HEAD. The repositories are considered immutable by this tool and thus push, tag and other operations will not be applied to the public projects.
+
+\paragraph{Workarea} Each project group requires a work area to be provided. This is the top level of the directory structure where the projects will be cloned. Each project's path specification is appended to the work area to determine the workarea for the project. For the project codex in the above example, the work area will be \texttt{.work/codex}. Please note that the path for each project has to be unique.
+
+\paragraph{Server} The project group can have a default server specified. This will be used for each project unless overridden in the project. 
+
+\paragraph{Repository spec} A project can provide one of \textbf{repo} which is combined with the Server of the project group. Alternatively a \textbf{repourl} can be specified which becomes the full specification of the repository. In the above example, for \textbf{srctrace} the entire url is provided whereas for \textbf{codex} the url is formed using the Server spec and the repo spec resulting in: \textbf{git@gitlab.com:RajaSrinivasan/codex.git}.
+
+\paragraph{Reference} For default reference of the project group will be applied to each project unless overridden in the project. A reference could be a branch name or a tag. For the project, the reference could also be a commit id.
+
+\paragraph{Build instruction} A project can provide a build instruction. Upon completion of a clone or a pull, this command expected to be a shell command is executed. As an illustration, for the project codex in the example, a make command is specified.
+%----------------------------------------------------------------------------------------
+% Literature review
+%----------------------------------------------------------------------------------------
+
+\section{Usage and examples}
+
+\subsection{usage}
+
+\begin{lstlisting}
+
+    
+	grepo supports a project that comprises different repositories.
+
+Usage:
+  grepo [command]
+
+Available Commands:
+  diff        Diff from where we started
+  help        Help about any command
+  init        Initialize - setup the workspace
+  pull        Pull for each repo
+  push        Push for each repo
+  status      Project Status
+  tag         Tag each repo
+  version     Report the version of the application
+
+Flags:
+      --config string   config file. (default "Project.yaml")
+  -h, --help            help for grepo
+      --verbose         be verbose
+  -v, --version         version for grepo
+
+Use "grepo [command] --help" for more information about a command.
+
+\end{lstlisting}
+
+\paragraph{init} The init command sets up the directory structure, clones the repository and performs the initial build of the repository.
+\paragraph{pull} After the initial setup, the pull command applies \textbf{git pull} to each of the projectlets. The public repos can be pull'ed optionally.
+\paragraph{tag} Applies the tag to each (private only) repository. While pushing, the tags will be pushed as well.
+\paragraph{diff} For each private repository, this displays the difference
+\paragraph{push} For each private repository, this performs a commit and a push. The same commit message is applied to all the repositories. Individual changes to the repositories must be "add"ed by the
+user. The repositories are all available for direct manipulation with native git.
+\end{document}
+
+\subsection{Initialization}
+
