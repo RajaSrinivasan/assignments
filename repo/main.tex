@@ -138,69 +138,96 @@ Projects with many components and developers are best managed with distinct inde
 the public repositories developed outside the team which are just used; the components that are unique to the project then may be viewed as 
 private.
 
-The public repositories then are primarily replicated for usage, prepared (eg. built) and periodically refreshed. The private repositories on the other hand go through an active development cycle. In git parlance, this would include creating new branches, merging, tagging and of course publishing. Specific sub projects thus may well span several repositories.
+The public repositories then are primarily replicated for usage, prepared (eg. built) and periodically refreshed. The private repositories on the other hand go through an active development cycle. In git parlance, in addition to normal software engineering activities would include creating new branches, merging, tagging and of course publishing. Specific sub projects thus may well span several repositories.
 
-This tool enables developers manage their \textbf{projectlets} as a group. For example create a new \textbf{feature branch} on a set of related repositories and finally push or publish the branch as a group.
+This tool enables developers manage their \textbf{projectlets} as a group. For example create a new \textbf{feature branch} on a set of related repositories and finally push or publish the branch as a group once the developer is ready to share.
 
 \url{https://source.android.com/setup/develop/repo} is such a tool which serves as a pattern for this projectlet. The goals are simplified somewhat:
 
 \begin{itemize}
     \item \textbf{git} is the only source code control system supported.
-    \item Publishing updates, tags etc are to the original source repositories. The complete link to the repositories and the histories is maintained.
-    \item Commands mirror their \textbf{git} equivalents. 
+    \item Publishing updates, tags etc are to the original source repositories. The complete link to the repositories and the histories is maintained. The individual repositories may be manipulated individually.
+    \item Commands mirror their \textbf{git} equivalents somewhat. The command semantics are designed for convenience and not for power. If necessary git can be directly accessed for more complex operations.
     \item Project configuration is provided in \textbf{yaml} format.
 \end{itemize}
 
 \subsection{Typical use cases}
 
-Developers of embedded systems using \textbf{yocto} or \textbf{embos} have to manage their environment as outlined above. Their own application might be split into several repositories while depending heavily on the platform libraries spread over numerous other repositories. Both these groups are evolving - the public ones presumably changing slower than the private ones.
+Developers of embedded systems using e.g. \textbf{yocto}  have to manage their environment as outlined above. Their own application might be split into several repositories while depending heavily on the platform libraries spread over numerous other repositories. Both these groups are evolving - the public ones presumably changing slower than the private ones.
+
+\paragraph{} Even simpler, many hobbyists have quite a few projectlets going in parallel, related somewhat loosely. In my own case my repos are spread between gitlab, github, bitbucket and so on. I also jump around from a Windows laptop, a Macbook and quite a few Linux servers not to mention several Raspberry PI's and I want to have most of my projects available in each of my systems. This tool allows me to setup my environment with minimal fuss.
 
 \section{Specifications}
 
 \subsection{Configuration}
 
-A developer creates a Project configuration file eg. project.yaml listing all the public and private repositories. Uses the grepo tool to setup the initial checkout of the development base. For each feature, a feature branch is created in all the repositories. Development may affect some of the repositories while other repositories may not be affected at all.
-
-Operations such as tagging, publishing all are performed in one transaction. 
-
-Publishing of the feature branch to the origin is predicated on actual changes. Repos which did not have any changes will not be published to the origin.
+A sample configuration for a project file is listed below.
 
 \begin{lstlisting}[caption=Example Project.yaml]
 public:
-    workarea: ".worklib"
-    reference: "V01.00"
-    projects:
-      - repourl: "git@gitlab.com:projtemplates/go.git"
-        reference: "master"
-        path: "go/lib"
-        build: "make setup all"
+  workarea: "$HOME/grepotest/pub"
+  projects:
+    - repourl: "git@gitlab.com:projtemplates/go.git"
+      reference: "master"
+      path: "go/lib"
+      build: "make setup all"
+
 private:
-    workarea: ".work"
-    server: "git@gitlab.com:"
-    reference: "tagx02"
-    projects:
-      - repo: "RajaSrinivasan/icm.git"
-        path: "icm"
-        reference: "V01.06"
-      - repo: "RajaSrinivasan/codex.git"
-        path: "codex"
-        reference: "v0.1.0-B"
-        build: "make setup all test"
-      - repourl: "https://github.com/RajaSrinivasan/srctrace.git"
-        path: "tools"
-      - repourl: "git@github.com:repotrace.git"
-        path: "tools"
+  workarea: "$HOME/grepotest/pvt"
+  server: "git@gitlab.com:RajaSrinivasan/"
+
+  projects:
+    - repo: "random.git"
+      path: "random"
+
+    - repo:  "exec.git"
+      path: "exec"
+      build: "build.sh"
+
+    - repo: "codex.git"
+      path: "codex"
+      reference: "v0.1.0-B"
+      build: "make setup all test"
+
+    - repourl: "https://github.com/RajaSrinivasan/disign.git"
+      path: "disign"
+      build: "make all"
+
+    - repourl: "https://github.com/RajaSrinivasan/spm.git"
+      path: "spm"
+      build: "make all"
+
+    - repourl: "https://github.com/RajaSrinivasan/srctrace.git"
+      path: "srctrace"
+      reference: "feat_many_platforms"
+      build: "make setup all"
+
+    - repourl: "https://github.com/RajaSrinivasan/repotrace.git"
+      path: "repotrace"
+
+    - repourl: "https://github.com/RajaSrinivasan/rollpwd.git"
+      path: "rollpwd"
+
 \end{lstlisting}
 
 \paragraph{Project Groups} The sample configuration lists two project groups: public and private. \textbf{public} projects are considered reference only and thus cloned and then detached from the HEAD. The repositories are considered immutable by this tool and thus push, tag and other operations will not be applied to the public projects.
 
-\paragraph{Workarea} Each project group requires a work area to be provided. This is the top level of the directory structure where the projects will be cloned. Each project's path specification is appended to the work area to determine the workarea for the project. For the project codex in the above example, the work area will be \texttt{.work/codex}. Please note that the path for each project has to be unique.
+\paragraph{Workarea} Each project group requires a work area to be provided. This is the top level of the directory structure where the projects will be cloned. Each project's path specification is appended to the work area to determine the workarea for the project. For the project codex in the above example, the work area will be the folder \texttt{codex} under the work area \textbf{\$HOME/grepo/pvt}. Please note that the path for each project has to be unique.
 
-\paragraph{Server} The project group can have a default server specified. This will be used for each project unless overridden in the project. 
+The work area specified is first translated using the environment variables.
+
+\paragraph{}
+\fbox{%
+    \parbox{40em}{%
+    Workspace directories should not fall within another git tree to avoid confusions.
+    }%
+}
+
+\paragraph{Server} The project group can have a default server specified. This will be used for each project unless overridden in the project. In the example all the private projects come from gitlab.com and accessed using the git protocol \textbf{git@gitlab.com:RajaSrinivasan/}. 
 
 \paragraph{Repository spec} A project can provide one of \textbf{repo} which is combined with the Server of the project group. Alternatively a \textbf{repourl} can be specified which becomes the full specification of the repository. In the above example, for \textbf{srctrace} the entire url is provided whereas for \textbf{codex} the url is formed using the Server spec and the repo spec resulting in: \textbf{git@gitlab.com:RajaSrinivasan/codex.git}.
 
-\paragraph{Reference} For default reference of the project group will be applied to each project unless overridden in the project. A reference could be a branch name or a tag. For the project, the reference could also be a commit id.
+\paragraph{Reference} Reference is a branch name or tag. The reference specification of the project group will be applied to each project unless overridden in the project. For a project, the reference could also be a commit id.
 
 \paragraph{Build instruction} A project can provide a build instruction. Upon completion of a clone or a pull, this command expected to be a shell command is executed. As an illustration, for the project codex in the example, a make command is specified.
 %----------------------------------------------------------------------------------------
@@ -211,9 +238,9 @@ private:
 
 \subsection{usage}
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Basic usage]
+$ bin/grepo --help
 
-    
 	grepo supports a project that comprises different repositories.
 
 Usage:
@@ -239,13 +266,65 @@ Use "grepo [command] --help" for more information about a command.
 
 \end{lstlisting}
 
-\paragraph{init} The init command sets up the directory structure, clones the repository and performs the initial build of the repository.
-\paragraph{pull} After the initial setup, the pull command applies \textbf{git pull} to each of the projectlets. The public repos can be pull'ed optionally.
+\paragraph{init} The init command sets up the directory structure, clones the repository and performs the initial build of the repository. Optionally a branch name can be provided which creates the same branch on all the private repos.
+
+\paragraph{pull} After the initial setup, the pull command applies \textbf{git pull} to each of the projectlets followed by an optional build. The public repos can also be pull'ed and optionally a build performed.
+
 \paragraph{tag} Applies the tag to each (private only) repository. While pushing, the tags will be pushed as well.
-\paragraph{diff} For each private repository, this displays the difference
-\paragraph{push} For each private repository, this performs a commit and a push. The same commit message is applied to all the repositories. Individual changes to the repositories must be "add"ed by the
-user. The repositories are all available for direct manipulation with native git.
+
+\paragraph{diff} For each private repository, this displays the difference from the original reference. 
+
+\paragraph{push} For each private repository, this performs a commit and a push. The same commit message is applied to all the repositories.  If a branch name had been specified with the init command, the push target is the newly created branch name. This utility applies a \textbf{commit -a} to each repo and thus can take care of the files known to git ie previously under git control. New files created should be added manually. Any tags created can also be pushed to the remote.
+
+\begin{lstlisting}[caption=Project Initialization. Sample log]
+bin/grepo init --verbose --force
+2020/05/30 06:56:39 Loading the config file Project.yaml
+2020/05/30 06:56:39 Project group: Public
+2020/05/30 06:56:39 Workspace /Users/rajasrinivasan/grepotest/pub
+2020/05/30 06:56:39 Project group: Private
+2020/05/30 06:56:39 Workspace /Users/rajasrinivasan/grepotest/pvt
+...
+2020/05/30 06:56:41 Executing /usr/bin/git clone git@gitlab.com:RajaSrinivasan/codex.git .
+2020/05/30 06:56:56 Cloning into '.'...
+2020/05/30 06:56:56 Executing /usr/bin/git checkout v0.1.0-B
+2020/05/30 06:56:56 Note: checking out 'v0.1.0-B'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 0a26e9b Deleted bin/app
+...
+2020/05/30 06:56:59 Created /Users/rajasrinivasan/grepotest/pvt/srctrace
+2020/05/30 06:56:59 Executing /usr/bin/git clone https://github.com/RajaSrinivasan/srctrace.git .
+2020/05/30 06:57:00 Cloning into '.'...
+2020/05/30 06:57:00 Executing /usr/bin/git checkout feat_many_platforms
+2020/05/30 06:57:00 Switched to a new branch 'feat_many_platforms'
+Branch 'feat_many_platforms' set up to track remote branch 'feat_many_platforms' from 'origin'.
+\end{lstlisting}
+
+\begin{lstlisting}[caption= Example of status]
+$ bin/grepo status
+2020/05/30 17:27:03 Status in /Users/rajasrinivasan/grepotest/pvt/random
+2020/05/30 17:27:03 On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+2020/05/30 17:27:03 Status in /Users/rajasrinivasan/grepotest/pvt/exec
+2020/05/30 17:27:03 On branch master
+Your branch is up to date with 'origin/master'.
+\end{lstlisting}
+
+\section{Implementation}
+\fbox{%
+    \parbox{40em}{%
+    Implementation in \textbf{go} : \url{https://github.com/RajaSrinivasan/grepo.git}
+    }%
+}
+
 \end{document}
-
-\subsection{Initialization}
-
