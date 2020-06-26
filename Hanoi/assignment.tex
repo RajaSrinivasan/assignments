@@ -108,11 +108,12 @@ bindingoffset=0mm, top=20mm,bottom=20mm}
 
 It is not surprising that as the size of a problem - however \textbf{the size} is defined, will determine the cost of a solution. For a given problem, there may be multiple solutions possible and we may have to understand the cost before settling on the solution. Facial recognition for example is such a problem where there may be a large database to search for a match. Confronted by a choice, algorithms need to be evaluated before one is chosen for implementation.
 
+
 \paragraph{}In this projectlet, the familiar problem \textbf{Towers of Hanoi} is used to explore such ideas. \url{https://en.wikipedia.org/wiki/Tower_of_Hanoi} defines the basic problem and outlines a \textbf{recursive} and an \textbf{iterative} solution. This can be implemented with appropriate instrumentation to compare the performance.
 
 \paragraph{}\textbf{Wikipedia} article referenced above also points to several extensions e.g. higher number of pegs and other rule set governing the moves.
 
-\paragraph{}The goal is to experiment with ideas for instrumentation for performance comparisons. In particular, it is posited that algorithm visualization graphically gives a good insight into the performance of algorithms - in comparison with a simpler text output based comparisons.
+\paragraph{}The goal is to experiment with ideas for instrumentation for performance comparisons. In particular, it is posited that algorithm visualization graphically gives a good insight into the performance of algorithms - in comparison with a simpler text output based comparisons. As we explore visualizations, the separation of the algorithm from the visualization becomes a topic to explore as well. A clean separation will enable substitution of visualization techniques and toolkits without compromising the algorithm.
 
 \section*{Initial approach}
 
@@ -164,8 +165,11 @@ More experimentation leads to the following:
 The impact of the performance implications would be readily apparent if the execution is visualized. For example, if the moves of the disks are presented graphically, and every move is presented in a graphical interface, the sheer number of moves and the time it takes would be clear. By varying the number of disks, we can immediately appreciate the relation. The ability 
 to pause/resume the progress proves to be highly educational
 
-\subsection*{Animation}
+\subsection*{Animation - fyne graphical library}
 \includegraphics[width=6in]{TowersOfHanoi.png}
+
+\subsection*{Animation - gtk3 library}
+\includegraphics[width=6in]{gtkexample.png}
 
 \section*{Implementation}
 
@@ -187,7 +191,7 @@ usage: hanoi <number of disks> [iterative] [graphic]
 
 \paragraph{}
 
-An implementation in \textbf{go} language using \textbf{fyne} (\url{https://fyne.io/}) library for gui has been developed and is available for exploration and enhancements.
+An implementation in \textbf{go} language using \textbf{fyne} (\url{https://fyne.io/}) library for gui has been developed and is available for exploration and enhancements. The project also incorporates an alternative implementation using the \textbf{gtk3} framework (\url{https://github.com/gotk3/gotk3}).
 
 \fbox{%
     \parbox{45em}{%
