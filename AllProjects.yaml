@@ -1,0 +1,18 @@
+public:
+  workarea: "$HOME/.grepo/pub"
+  projects:
+    - repourl: "git@gitlab.com:privatetutor/projectlets/cs.git"
+      reference: "master"
+      path: "cs"
+      
+private:
+  workarea: "$HOME/.grepo/pvt"
+  server: "git@gitlab.com:RajaSrinivasan/"
+
+  projects:
+    - repo: "csharp.git"
+      path: "csharp"
+    - repo: "Projects.git"
+      path: "projects"
+    - repourl: "https://github.com/RajaSrinivasan/Projects.git"
+      path: "githubprojects"
