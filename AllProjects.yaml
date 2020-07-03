@@ -1,18 +1,67 @@
+#
+# AllProjects.yaml
+#
+#  This is a grepo config file to pull in all the example projects which are
+#  currently available to illustrate the assignments.
+#
+#  Examples missing are available and will be added soon.
+#  Questions: rs@toprllc.com
+#
 public:
-  workarea: "$HOME/.grepo/pub"
+  workarea: "$HOME/grepotest/pub"
   projects:
-    - repourl: "git@gitlab.com:privatetutor/projectlets/cs.git"
+    - repourl: "git@gitlab.com:projtemplates/go.git"
       reference: "master"
-      path: "cs"
-      
+      path: "go/lib"
+      build: "make setup all"
+
 private:
-  workarea: "$HOME/.grepo/pvt"
+  workarea: "$HOME/grepotest/pvt"
   server: "git@gitlab.com:RajaSrinivasan/"
 
   projects:
-    - repo: "csharp.git"
-      path: "csharp"
-    - repo: "Projects.git"
-      path: "projects"
-    - repourl: "https://github.com/RajaSrinivasan/Projects.git"
-      path: "githubprojects"
+    - repo: "random.git"
+      path: "random"
+
+    - repo:  "exec.git"
+      path: "exec"
+      build: "build.sh"
+
+    - repo: "codex.git"
+      path: "codex"
+      reference: "v0.1.0-B"
+      build: "make setup all test"
+
+    - repourl: "https://github.com/RajaSrinivasan/disign.git"
+      path: "disign"
+      build: "make all"
+
+    - repourl: "https://github.com/RajaSrinivasan/spm.git"
+      path: "spm"
+      build: "make all"
+
+    - repourl: "https://github.com/RajaSrinivasan/srctrace.git"
+      path: "srctrace"
+      reference: "feat_many_platforms"
+      build: "make setup all"
+
+    - repourl: "https://github.com/RajaSrinivasan/repotrace.git"
+      path: "repotrace"
+
+    - repourl: "https://github.com/RajaSrinivasan/rollpwd.git"
+      path: "rollpwd"
+
+    - repourl: "https://github.com/RajaSrinivasan/grepo.git"
+      path: "grepo"
+
+#
+# GUI examples
+#
+    - repourl: "git://git.code.sf.net/p/gohanoi/code"
+      path: "gohanoi"
+      build: "make setup all"
+
+    - repourl: "git@bitbucket.org:ToprLLC/snakes.git"
+      path: "snakes"
+      build: "make setup all"
+
