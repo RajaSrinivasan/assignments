@@ -19,3 +19,8 @@ find any system or language dependent specification.
 # Direction
 
 The goal is to string these assignments together in the form of a blog or text book. 
+
+## Invitation
+
+I invite fellow lifelong learners to collaborate in building up a cache of solutions to these assignments. Since they are language and platform agnostic, multiple solutions will help the community. If you have an alternate solution, please create an issue in this project with a reference to your repo.
+
