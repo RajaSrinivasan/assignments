@@ -1,0 +1,276 @@
+% Credits are indicated where needed. The general idea is based on a template by Vel (vel@LaTeXTemplates.com) and Frits Wenneker.
+
+\documentclass[12pt, a4paper]{article} % General settings in the beginning (defines the document class of your paper)
+% 11pt = is the font size
+% A4 is the paper size
+% “article” is your document class
+
+%----------------------------------------------------------------------------------------
+%	Packages
+%----------------------------------------------------------------------------------------
+
+% Necessary
+\usepackage[german,english]{babel} % English and German language 
+\usepackage{booktabs} % Horizontal rules in tables 
+% For generating tables, use “LaTeX” online generator (https://www.tablesgenerator.com)
+\usepackage{comment} % Necessary to comment several paragraphs at once
+\usepackage[utf8]{inputenc} % Required for international characters
+\usepackage[T1]{fontenc} % Required for output font encoding for international characters
+\usepackage{listings}
+
+\lstset{basicstyle=\linespread{0.8}\ttfamily\footnotesize,
+    xleftmargin=0.7cm,
+    frame=tlbr, framesep=0.2cm, framerule=0pt,
+}
+\lstset{frame=single}
+
+% Might be helpful
+\usepackage{amsmath,amsfonts,amsthm} % Math packages which might be useful for equations
+\usepackage{tikz} % For tikz figures (to draw arrow diagrams, see a guide how to use them)
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,arrows} % Adding libraries for arrows
+\usetikzlibrary{decorations.pathreplacing} % Adding libraries for decorations and paths
+\usepackage{tikzsymbols} % For amazing symbols ;) https://mirror.hmc.edu/ctan/graphics/pgf/contrib/tikzsymbols/tikzsymbols.pdf 
+\usepackage{blindtext} % To add some blind text in your paper
+
+\usepackage{url}
+\usepackage{enumerate}
+%---------------------------------------------------------------------------------
+% Additional settings
+%---------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+% Define your margins
+\usepackage{geometry} % Necessary package for defining margins
+
+\geometry{
+	top=4cm, % Defines top margin
+	bottom=2cm, % Defines bottom margin
+	left=2.2cm, % Defines left margin
+	right=2.2cm, % Defines right margin
+	includehead, % Includes space for a header
+	%includefoot, % Includes space for a footer
+	%showframe, % Uncomment if you want to show how it looks on the page 
+}
+
+\setlength{\parindent}{15pt} % Adjust to set you indent globally 
+
+%---------------------------------------------------------------------------------
+% Define your spacing
+\usepackage{setspace} % Required for spacing
+% Two options:
+\linespread{1.5}
+%\onehalfspacing % one-half-spacing linespread
+
+%----------------------------------------------------------------------------------------
+% Define your fonts
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+
+\usepackage{XCharter} % Use the XCharter font
+
+\usepackage{lscape}
+%---------------------------------------------------------------------------------
+% Define your headers and footers
+
+\usepackage{fancyhdr} % Package is needed to define header and footer
+\pagestyle{fancy} % Allows you to customize the headers and footers
+
+%\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Removes the section number from the header when \leftmark is used
+
+% Headers
+\lhead{} % Define left header
+\chead{\textit{}} % Define center header - e.g. add your paper title
+\rhead{} % Define right header
+
+% Footers
+\lfoot{templates v0.1} % Define left footer
+\rfoot{\footnotesize Page \thepage} % Define center footer
+\cfoot{ } % Define right footer
+
+%---------------------------------------------------------------------------------
+%	Add information on bibliography
+\usepackage{natbib} % Use natbib for citing
+\usepackage{har2nat} % Allows to use harvard package with natbib https://mirror.reismil.ch/CTAN/macros/latex/contrib/har2nat/har2nat.pdf
+
+% For citing with natbib, you may want to use this reference sheet: 
+% http://merkel.texture.rocks/Latex/natbib.php
+
+%---------------------------------------------------------------------------------
+% Add field for signature (Reference: https://tex.stackexchange.com/questions/35942/how-to-create-a-signature-date-page)
+\newcommand{\signature}[2][5cm]{%
+  \begin{tabular}{@{}p{#1}@{}}
+    #2 \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Signature}} \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Place, Date}}
+  \end{tabular}
+}
+%---------------------------------------------------------------------------------
+%	General information
+%---------------------------------------------------------------------------------
+\title{templates - a tool to improve productivity} % Adds your title
+\author{Srini, rs@toprllc.com}
+\date{\small \today} 
+%---------------------------------------------------------------------------------
+%	Define what’s in your document
+%---------------------------------------------------------------------------------
+
+\begin{document}
+%\newfontfamily\listingsfont[Scale=.7]{Menlo}
+
+% If you want a cover page, uncomment "\input{coverpage.tex}" and uncomment "\begin{comment}" and "\end{comment}" to comment the following lines
+%\input{coverpage.tex}
+
+%\begin{comment}
+\maketitle % Print your title, author name and date; comment if you want a cover page 
+%\end{comment}
+
+%----------------------------------------------------------------------------------------
+% Introduction
+%----------------------------------------------------------------------------------------
+\setcounter{page}{1} % Sets counter of page to 1
+
+\section{Introduction} 
+
+There are no shortcuts to gain proficiency in any discipline - particularly programming languages - except to practise a lot. Over the course of a self directed program, you will find yourself adapting a pattern and try to apply the pattern over and over again as you explore different facets. For example, a command line interface with switches and options might be a technique to explore ideas in encryption, compression, text processing and so on. A template of a \textbf{cli} program could be a great starting point for each project.
+
+\paragraph{}
+The ubiquitous web development framework \textbf{Node.js} \url{https://nodejs.org/en/about/} for example  supports a number of tools for the beginner to setup an initial project based on a template. With very little effort, a new project can be setup to help build your application rapidly.
+
+\paragraph{}
+In this projectlet, we specify a cli template and a web server template. They are designed to impose a standard on such efforts in addition to providing a starting point for new projects. 
+
+\section{Command Language Template}
+
+\paragraph{Expected features of cli applications}
+
+The following is a list of features that would be useful for potential users.
+
+\begin{itemize}
+    \item help. this should print out the usage ie all the options and arguments. In most cases invoking the utility without any arguments should provide a help output and exit.
+    \item version reporting - to enable issue reporting and tracking. Wherever feasible, a program can also provide a way to track the software back to a configuration management system.
+    \item verbosity - either a simple boolean or a verbosity level that requests diagnostic information.
+    \item No passwords to be specified on the command line. When there is a need for passwords an alternate way to specify such as environment variable could be a good solution.
+\end{itemize}
+
+\paragraph{Design guidelines}
+
+\begin{itemize}
+    \item Separation of the implementation from the invocation by a command line. Perhaps there may be a different way the service is deployed - possibly with a GUI or behind a web server.
+    \item Judicious use of logging will enhance the ease of use.
+    \item A design that can be adapted to a new requirement. Preferably a simple set of commands - in a script should be able to create a new project with the template as the starting point.
+    \item It should be functional. Though minimal in what it supports, the template should be buildable and perform the simple functions listed above.
+\end{itemize}
+
+\subsection{Example}
+The example in the repository below can be built and is functional.
+\begin{lstlisting}
+$ ./template
+
+        This is a template project for command line utilities
+
+Usage:
+  template [command]
+
+Available Commands:
+  help        Help about any command
+  version     Report the version of the application
+
+Flags:
+      --config string   config file (default is $HOME/.cli/cli.yaml)
+  -h, --help            help for template
+      --verbose         be verbose
+  -v, --version         version for template
+
+Use "template [command] --help" for more information about a command.
+
+\end{lstlisting}
+
+\section{Web server template}
+
+\paragraph{Essential Features}
+One example of deriving an app from the cli template is a web server which itself is a template. In this case, the requirements are:
+
+\begin{itemize}
+    \item Provide some set of services using a standard protocol such as \textbf{https} implying transport layer security.
+    \item Compatible with web browsers found on standard platforms
+    \item Support the notion of an admin user with support for administrative functions and a normal user with application functions. Before providing any service, the server shall require a login.
+    \item Support a basic user database with usernames and passwords. While the database itself may be a simple file, the passwords should not be stored in cleartext.
+    \item Ability to support development without a production oriented environment. This may call for self signed certificates, operate under different platforms.
+    \item Basic setup for serving static html content.
+\end{itemize}
+
+
+
+
+\subsection{Minimal Realization based on the cli template}
+
+The repository contains a template of a https server to meet the above. As the example illustrates, it can be \textbf{installed} when a self signed certificate is generated to support the \textbf{TLS} requirement. The installation process also generates a default user database with a minimal set of usernames. The tool prompts for the default passwords.
+
+\subsection{Usage}
+
+\begin{lstlisting}
+$ ./main --help
+
+        Generic TLS server
+
+Usage:
+  server [flags]
+  server [command]
+
+Available Commands:
+  help        Help about any command
+  install     Installs the server
+  show        Show details
+  user        User admin
+  version     Report the version of the application
+
+Flags:
+      --config string   config file name. Default is
+  -h, --help            help for server
+  -v, --verbose int     verbosity level 1 .. 16
+      --version         version for server
+
+Use "server [command] --help" for more information about a command.
+
+\end{lstlisting}
+\begin{landscape}
+\subsection{Installation Example}
+\begin{lstlisting}
+$ ./main install
+Server directory[C:\msys64\home\RajaS/server] :
+Server Port[443] :
+Server URL[localhost] :
+Admin Password (username: admin)[admin] :
+User Password (username: user)[user] :
+2020/07/25 07:21:53 Saved Configuration file C:\msys64\home\RajaS/server/etc/server.yaml
+2020/07/25 07:21:53 Generating certificates
+2020/07/25 07:21:55 Created private key file C:\msys64\home\RajaS/server/etc/keypair.pvt.pem
+2020/07/25 07:21:55 Created public key C:\msys64\home\RajaS/server/etc/keypair.pub.pem
+2020/07/25 07:21:55 Creating Cert
+2020/07/25 07:21:55 Loaded C:\msys64\home\RajaS/server/etc/keypair.pvt.pem and created a private key
+2020/07/25 07:21:55 Certificate saved to C:\msys64\home\RajaS/server/etc/certfile
+2020/07/25 07:21:55 Setting up website
+2020/07/25 07:21:55 Installing files of templates to C:\msys64\home\RajaS/server/html
+2020/07/25 07:21:55 Installed footer.html in C:\msys64\home\RajaS/server/html
+2020/07/25 07:21:55 Installed header.html in C:\msys64\home\RajaS/server/html
+2020/07/25 07:21:55 Installed index.html in C:\msys64\home\RajaS/server/html
+2020/07/25 07:21:55 Installed login.html in C:\msys64\home\RajaS/server/html
+2020/07/25 07:21:55 Installed menu.html in C:\msys64\home\RajaS/server/html
+2020/07/25 07:21:55 Installed stats.html in C:\msys64\home\RajaS/server/html
+
+\end{lstlisting}
+
+\end{landscape}
+
+\section{Implementation}
+ The following repository contains 2 projects - a cli template and a webserver template in the \textbf{go} language.
+ 
+\paragraph{}
+\fbox{%
+    \parbox{6in}{%
+    Implementation in \textbf{go} : \url{https://gitlab.com/projtemplates/go.git}
+    }%
+}
+
+\end{document}
