@@ -1,0 +1,197 @@
+% Credits are indicated where needed. The general idea is based on a template by Vel (vel@LaTeXTemplates.com) and Frits Wenneker.
+
+\documentclass[12pt, a4paper]{article} % General settings in the beginning (defines the document class of your paper)
+% 11pt = is the font size
+% A4 is the paper size
+% “article” is your document class
+
+%----------------------------------------------------------------------------------------
+%	Packages
+%----------------------------------------------------------------------------------------
+
+% Necessary
+\usepackage[german,english]{babel} % English and German language 
+\usepackage{booktabs} % Horizontal rules in tables 
+% For generating tables, use “LaTeX” online generator (https://www.tablesgenerator.com)
+\usepackage{comment} % Necessary to comment several paragraphs at once
+\usepackage[utf8]{inputenc} % Required for international characters
+\usepackage[T1]{fontenc} % Required for output font encoding for international characters
+\usepackage{listings}
+
+\lstset{basicstyle=\linespread{0.8}\ttfamily\footnotesize,
+    xleftmargin=0.7cm,
+    frame=tlbr, framesep=0.2cm, framerule=0pt,
+}
+\lstset{frame=single}
+
+% Might be helpful
+\usepackage{amsmath,amsfonts,amsthm} % Math packages which might be useful for equations
+\usepackage{tikz} % For tikz figures (to draw arrow diagrams, see a guide how to use them)
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,arrows} % Adding libraries for arrows
+\usetikzlibrary{decorations.pathreplacing} % Adding libraries for decorations and paths
+\usepackage{tikzsymbols} % For amazing symbols ;) https://mirror.hmc.edu/ctan/graphics/pgf/contrib/tikzsymbols/tikzsymbols.pdf 
+\usepackage{blindtext} % To add some blind text in your paper
+
+\usepackage{url}
+\usepackage{enumerate}
+%---------------------------------------------------------------------------------
+% Additional settings
+%---------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+% Define your margins
+\usepackage{geometry} % Necessary package for defining margins
+
+\geometry{
+	top=2cm, % Defines top margin
+	bottom=2cm, % Defines bottom margin
+	left=2.2cm, % Defines left margin
+	right=2.2cm, % Defines right margin
+	includehead, % Includes space for a header
+	%includefoot, % Includes space for a footer
+	%showframe, % Uncomment if you want to show how it looks on the page 
+}
+
+\setlength{\parindent}{15pt} % Adjust to set you indent globally 
+
+%---------------------------------------------------------------------------------
+% Define your spacing
+\usepackage{setspace} % Required for spacing
+% Two options:
+\linespread{1}
+%\onehalfspacing % one-half-spacing linespread
+
+%----------------------------------------------------------------------------------------
+% Define your fonts
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+
+\usepackage{XCharter} % Use the XCharter font
+
+
+%---------------------------------------------------------------------------------
+% Define your headers and footers
+
+\usepackage{fancyhdr} % Package is needed to define header and footer
+\pagestyle{fancy} % Allows you to customize the headers and footers
+
+%\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Removes the section number from the header when \leftmark is used
+
+% Headers
+\lhead{} % Define left header
+\chead{\textit{}} % Define center header - e.g. add your paper title
+\rhead{} % Define right header
+
+% Footers
+\lfoot{resource v0.1} % Define left footer
+\rfoot{\footnotesize Page \thepage} % Define center footer
+\cfoot{ } % Define right footer
+
+%---------------------------------------------------------------------------------
+%	Add information on bibliography
+\usepackage{natbib} % Use natbib for citing
+\usepackage{har2nat} % Allows to use harvard package with natbib https://mirror.reismil.ch/CTAN/macros/latex/contrib/har2nat/har2nat.pdf
+
+% For citing with natbib, you may want to use this reference sheet: 
+% http://merkel.texture.rocks/Latex/natbib.php
+
+%---------------------------------------------------------------------------------
+% Add field for signature (Reference: https://tex.stackexchange.com/questions/35942/how-to-create-a-signature-date-page)
+\newcommand{\signature}[2][5cm]{%
+  \begin{tabular}{@{}p{#1}@{}}
+    #2 \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Signature}} \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Place, Date}}
+  \end{tabular}
+}
+%---------------------------------------------------------------------------------
+%	General information
+%---------------------------------------------------------------------------------
+\title{Resource support} % Adds your title
+\author{Srini, rs@toprllc.com}
+\date{\small \today} % Adds the current date to your “cover” page; leave empty if you do not want to add a date
+
+
+%---------------------------------------------------------------------------------
+%	Define what’s in your document
+%---------------------------------------------------------------------------------
+
+\begin{document}
+%\newfontfamily\listingsfont[Scale=.7]{Menlo}
+
+% If you want a cover page, uncomment "\input{coverpage.tex}" and uncomment "\begin{comment}" and "\end{comment}" to comment the following lines
+%\input{coverpage.tex}
+
+%\begin{comment}
+\maketitle % Print your title, author name and date; comment if you want a cover page 
+%\end{comment}
+
+%----------------------------------------------------------------------------------------
+% Introduction
+%----------------------------------------------------------------------------------------
+\setcounter{page}{1} % Sets counter of page to 1
+
+\section{Introduction} % Add a section title
+
+This projectlet enables applications to include reources such as graphics files, audio files in the
+executable for distribution; instead of as individual files. This is achieved by converting the files into source code to be compiled for inclusion in the binaries. At runtime, the application can retrieve the resource with a runtime library.
+
+\begin{itemize}
+    \item Generated sources can be in one of several languages : \textbf{C, Ada, go}.
+    \item A hash of the file is generated and included in the binary for runtime verification. This will protect the binary from corruption and/or tampering.
+    \item Project configuration is provided in \textbf{json} format.
+\end{itemize}
+
+\subsection{Learning Objectives}
+
+\begin{itemize}
+    \item Process json formatted files. \textbf{json} is ubiquitous as the vehicle for data exchange. Most programming languages support json processing without each of us having to develop it from scratch. Choosing an appropriate library is part of this exercise.
+    \item Polymorphism - Given a configuration in json, this projectlet converts files into source code compilable for inclusion in an executable. Depending on the user the preference may be for a variety of programming languages. Your programming language might enable this in some way e.g. \textbf{base class} and \textbf{derived} classes in \textbf{C++} while for \textbf{go} the technique might be built on the concept of \textbf{interface}s.
+    \item In order to protect against corruption of the data even if included in a binary, we could several techniques. A simple way might be to calculate a checksum or hash and verify the value at runtime before using the data. Here again, an appropriate library has to be chosen instead of implementing the algorithm.
+    \item Unit testing is an important aspect of software engineering. Though there seem to be numerous frameworks for unit testing, it does not have to be too fanciful. The project can be divided into smaller modules e.g. command line processing, loading the configuration data from the file and the actual conversion of files into resources; unit tests can be developed for each module.
+\end{itemize}
+
+\subsection{Configuration}
+
+A sample configuration for a project file is listed below.
+
+\begin{lstlisting}[caption=Example config.json]
+{
+    "resources" : [
+        {
+            "name" : "RESOURCE1" ,
+            "filename" : "res1.png"
+        } ,
+        {
+            "name" : "RESOURCE2" ,
+            "filename" : "source.h"
+        }
+    ]
+}
+
+\end{lstlisting}
+
+\section{Implementation}
+
+An example in \textbf{C++} is developed using the following external libraries:
+\paragraph{Libraries}
+\begin{itemize}
+    \item JSON processing is achieved using the \textbf{libjansson} (\url{https://digip.org/jansson/}). This library is a stable library in \textbf{C} - quite simple to integrate.
+    \item Cryptographic hash of files is generated using the MD5 algorithm. The library GTK3 from the gnome project (\url{https://developer.gnome.org/references}) is used for this purpose.
+\end{itemize}
+
+\paragraph{}
+\fbox{%
+    \parbox{40em}{%
+    Implementation in \textbf{C++} : \url{https://gitlab.com/cpp8/bindata.git}
+    }%
+}
+
+\subsection{Potential enhancements}
+\begin{itemize}
+    \item Text files can be potentially decoded from the hexadecimal conversions. An alternate representation might make it a little harder.
+    \item Some files such as text files may benefit from compression. The compressed data can become the compilable source. 
+    \item While the verification with a hash increases the protection of the original data, it is not foolproof. For critical resources, encryption might be needed to protect the data even further.
+\end{itemize}
+\end{document}
