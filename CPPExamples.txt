@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------------------------------------
+   Examples in C++
+   Environment: Linux, clang or g++, stdc++17 
+   The projects are listed in the order of increasing complexity
+-------------------------------------------------------------------------------------------------------------
+1. Project: Hello
+   Repo: https://gitlab.com/cpp8/hello.git
+   
+2. Project: Dump
+   Repo: https://gitlab.com/cpp8/dump.git
+   
+3. Project: Search
+   Repo: https://gitlab.com/cpp8/search.git
+   
+4. Project: Resource
+   Repo: https://gitlab.com/cpp8/bindata
