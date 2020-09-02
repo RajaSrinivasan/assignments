@@ -14,3 +14,6 @@
    
 4. Project: Resource
    Repo: https://gitlab.com/cpp8/bindata.git
+   
+5. Project: (In Progress) Network Geography exploration
+   Repo: https://gitlab.com/cpp8/netgeo.git
