@@ -13,4 +13,4 @@
    Repo: https://gitlab.com/cpp8/search.git
    
 4. Project: Resource
-   Repo: https://gitlab.com/cpp8/bindata
+   Repo: https://gitlab.com/cpp8/bindata.git
