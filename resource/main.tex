@@ -141,6 +141,7 @@ executable for distribution; instead of as individual files. This is achieved by
     \item Generated sources can be in one of several languages : \textbf{C, Ada, go}.
     \item A hash of the file is generated and included in the binary for runtime verification. This will protect the binary from corruption and/or tampering.
     \item Project configuration is provided in \textbf{json} format.
+    \item The utility can implement a simplistic encryption of the data before generating the output. This is to enable incorporation of API keys and the like into the binary.The goal is to make it a little harder to extract the secrets. 
 \end{itemize}
 
 \subsection{Learning Objectives}
@@ -150,6 +151,7 @@ executable for distribution; instead of as individual files. This is achieved by
     \item Polymorphism - Given a configuration in json, this projectlet converts files into source code compilable for inclusion in an executable. Depending on the user the preference may be for a variety of programming languages. Your programming language might enable this in some way e.g. \textbf{base class} and \textbf{derived} classes in \textbf{C++} while for \textbf{go} the technique might be built on the concept of \textbf{interface}s.
     \item In order to protect against corruption of the data even if included in a binary, we could several techniques. A simple way might be to calculate a checksum or hash and verify the value at runtime before using the data. Here again, an appropriate library has to be chosen instead of implementing the algorithm.
     \item Unit testing is an important aspect of software engineering. Though there seem to be numerous frameworks for unit testing, it does not have to be too fanciful. The project can be divided into smaller modules e.g. command line processing, loading the configuration data from the file and the actual conversion of files into resources; unit tests can be developed for each module.
+    \item Exploration of a simplistic approach to data encryption/decryption.
 \end{itemize}
 
 \subsection{Configuration}
@@ -181,6 +183,11 @@ An example in \textbf{C++} is developed using the following external libraries:
     \item Cryptographic hash of files is generated using the MD5 algorithm. The library GTK3 from the gnome project (\url{https://developer.gnome.org/references}) is used for this purpose.
 \end{itemize}
 
+\paragraph{Encryption}
+The fundamental building block used is the \textbf{xor} algorithm. In order to keep the password management simple, the creation date of the output structure is used as the key for this algorithm. The input is processed in blocks of a configurable size and the timestamp is repeated as many times as needed to fill up the encryption key of size equal to this block length.
+
+Exactly identical algorithm is performed by the runtime to decrypt the data. The required parameters namely the creation date and the blocklength are to be conveyed to the runtime - which is added to the output files - a header file in the case of C and a package spec in the case of Ada.
+
 \paragraph{}
 \fbox{%
     \parbox{40em}{%
@@ -192,6 +199,5 @@ An example in \textbf{C++} is developed using the following external libraries:
 \begin{itemize}
     \item Text files can be potentially decoded from the hexadecimal conversions. An alternate representation might make it a little harder.
     \item Some files such as text files may benefit from compression. The compressed data can become the compilable source. 
-    \item While the verification with a hash increases the protection of the original data, it is not foolproof. For critical resources, encryption might be needed to protect the data even further.
 \end{itemize}
 \end{document}
