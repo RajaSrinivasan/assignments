@@ -1,0 +1,182 @@
+% Credits are indicated where needed. The general idea is based on a template by Vel (vel@LaTeXTemplates.com) and Frits Wenneker.
+
+\documentclass[12pt, a4paper]{article} % General settings in the beginning (defines the document class of your paper)
+% 11pt = is the font size
+% A4 is the paper size
+% “article” is your document class
+
+%----------------------------------------------------------------------------------------
+%	Packages
+%----------------------------------------------------------------------------------------
+
+% Necessary
+\usepackage[german,english]{babel} % English and German language 
+\usepackage{booktabs} % Horizontal rules in tables 
+% For generating tables, use “LaTeX” online generator (https://www.tablesgenerator.com)
+\usepackage{comment} % Necessary to comment several paragraphs at once
+\usepackage[utf8]{inputenc} % Required for international characters
+\usepackage[T1]{fontenc} % Required for output font encoding for international characters
+\usepackage{listings}
+
+\lstset{basicstyle=\linespread{0.8}\ttfamily\footnotesize,
+    xleftmargin=0.7cm,
+    frame=tlbr, framesep=0.2cm, framerule=0pt,
+}
+\lstset{frame=single}
+
+% Might be helpful
+\usepackage{amsmath,amsfonts,amsthm} % Math packages which might be useful for equations
+\usepackage{tikz} % For tikz figures (to draw arrow diagrams, see a guide how to use them)
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,arrows} % Adding libraries for arrows
+\usetikzlibrary{decorations.pathreplacing} % Adding libraries for decorations and paths
+\usepackage{tikzsymbols} % For amazing symbols ;) https://mirror.hmc.edu/ctan/graphics/pgf/contrib/tikzsymbols/tikzsymbols.pdf 
+\usepackage{blindtext} % To add some blind text in your paper
+
+\usepackage{url}
+\usepackage{enumerate}
+%---------------------------------------------------------------------------------
+% Additional settings
+%---------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+% Define your margins
+\usepackage{geometry} % Necessary package for defining margins
+
+\geometry{
+	top=2cm, % Defines top margin
+	bottom=2cm, % Defines bottom margin
+	left=2.2cm, % Defines left margin
+	right=2.2cm, % Defines right margin
+	includehead, % Includes space for a header
+	%includefoot, % Includes space for a footer
+	%showframe, % Uncomment if you want to show how it looks on the page 
+}
+
+\setlength{\parindent}{15pt} % Adjust to set you indent globally 
+
+%---------------------------------------------------------------------------------
+% Define your spacing
+\usepackage{setspace} % Required for spacing
+% Two options:
+\linespread{1}
+%\onehalfspacing % one-half-spacing linespread
+
+%----------------------------------------------------------------------------------------
+% Define your fonts
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+
+\usepackage{XCharter} % Use the XCharter font
+
+
+%---------------------------------------------------------------------------------
+% Define your headers and footers
+
+\usepackage{fancyhdr} % Package is needed to define header and footer
+\pagestyle{fancy} % Allows you to customize the headers and footers
+
+%\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % Removes the section number from the header when \leftmark is used
+
+% Headers
+\lhead{} % Define left header
+\chead{\textit{}} % Define center header - e.g. add your paper title
+\rhead{} % Define right header
+
+% Footers
+\lfoot{netgeo v0.1} % Define left footer
+\rfoot{\footnotesize Page \thepage} % Define center footer
+\cfoot{ } % Define right footer
+
+%---------------------------------------------------------------------------------
+%	Add information on bibliography
+\usepackage{natbib} % Use natbib for citing
+\usepackage{har2nat} % Allows to use harvard package with natbib https://mirror.reismil.ch/CTAN/macros/latex/contrib/har2nat/har2nat.pdf
+
+% For citing with natbib, you may want to use this reference sheet: 
+% http://merkel.texture.rocks/Latex/natbib.php
+
+%---------------------------------------------------------------------------------
+% Add field for signature (Reference: https://tex.stackexchange.com/questions/35942/how-to-create-a-signature-date-page)
+\newcommand{\signature}[2][5cm]{%
+  \begin{tabular}{@{}p{#1}@{}}
+    #2 \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Signature}} \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Place, Date}}
+  \end{tabular}
+}
+%---------------------------------------------------------------------------------
+%	General information
+%---------------------------------------------------------------------------------
+\title{Network Geography} % Adds your title
+\author{Srini, rs@toprllc.com}
+\date{\small \today} 
+
+\begin{document}
+
+
+%\begin{comment}
+\maketitle % Print your title, author name and date; comment if you want a cover page 
+%\end{comment}
+
+\setcounter{page}{1}
+
+\section{Introduction}
+Geographic Information Systems have revolutionized personal travel with \textbf{GPS} services and accessible maps. In this project we explore the nature of geographic data and how to manipulate it. At the core of this is the coordinate system that incorporates a Latitude and a Longitude at a location. Depending on the GPS source, the accuracy of this varies. In addition, the coordinates at a location gives us a potential way to calculate the distance to another location.
+
+\paragraph{}
+In this projectlet, we try to \textbf{discover} some public IP Addresses and ascertain their coordinates. In addition, estimates of distances between pairs of IP addresses is computed.
+
+\paragraph{}
+A totally artificial example with no practical utility is chosen strictly for illustration.
+
+
+\subsection{Learning Objectives}
+
+\begin{itemize}
+    \item Explore some geospatial information. Given an IP address, we attempt to establish its location indicated by latitude and longitude. Given a pair of such coordinates, this projectlet will compute an estimate of the distance between the locations. This can only be an estimate since we do not have any information about the elevation component of the location.
+    \item There are many services on the web that provide an API to access information. In this project, one such service \url{http://api.ipstack.com/} provides the geographic coordinates of a given public node IP address (or name). It is often the case that such services return the requested information in the form of a \textbf{json} string. This leads to a need to process json formatted strings.
+    \item Most public APIs require a request to be authenticated using an API Key which is obtained by registering with the service. In this project, we leverage the \textbf{resource} utility to encrypt this key instead of including it in clear text in the binary. Clearly the code in a public repository defeats the security but serves the purpose as an illustration.
+    \item Utilization of the numerous utilities invoking them programmatically. In this projectlet we use the \textbf{traceroute} utility to enumerate the nodes in the path to the destination.
+\end{itemize}
+
+\subsection{References}
+\begin{itemize}
+    \item Given the GPS coordinates, the calculation of the distance between them is done using \textbf{haversine} formula \url{https://www.movable-type.co.uk/scripts/latlong.html}.
+    \item Further explanation of \textbf{haversine} is found at \url{https://reference.wolfram.com/language/ref/Haversine.html} and \url{https://en.wikipedia.org/wiki/Versine#hav}.
+\end{itemize}
+\section{Implementation}
+
+An example in \textbf{C++} is developed using the following external libraries:
+\paragraph{Libraries}
+\begin{itemize}
+    \item Accessing web services is enabled by \url{https://curl.haxx.se/libcurl/}.
+    \item JSON processing is enabled by \url{https://curl.haxx.se/libcurl/}.
+    \item Interacting with the system shell to execute commands is enabled by \textbf{glib} (\url{https://developer.gnome.org/glib/stable/}). The regular expression support of this library is used to analyze output of the commands.
+    \item Simple encryption support from \url{https://gitlab.com/cpp8/bindata.git} to hide the API key in the binary.
+\end{itemize}
+
+\subsection{Specification}
+\begin{lstlisting}
+./netgeo
+netgeo - Version 0.1 - Sat Sep  5 10:31:12 2020
+usage: netgeo <options> ipspec [ipspec...]
+         -v --verbose    Verbose
+         -h --help       Help
+         -t --trace - with this option, a traceroute to the argument is done
+                      and the distances of each hop is shown
+                      without the trace option, the distances of each of the 
+                      command line arguments is shown
+\end{lstlisting}
+
+\fbox{%
+    \parbox{35em}{%
+    Implementation in \textbf{C++} : \url{https://gitlab.com/cpp8/netgeo.git}
+    }%
+}
+\subsection{Potential enhancements}
+\begin{itemize}
+    \item Other free services on the cloud can be queried for coordinates of Cities. Distance computation between cities might be an interesting exercise.
+    \item The API key encryption is simple built around \textbf{xor} operations. This is the key idea in symmetric encryption algorithms the security of this coming from the protection of the key used in encryption. In this example a simplistic solution is implemented. The issue affords opportunities for experimentation.
+\end{itemize}
+\end{document}
