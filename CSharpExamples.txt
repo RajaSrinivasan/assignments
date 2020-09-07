@@ -1,0 +1,5 @@
+Some assignments with C# examples:
+==================================
+
+https://gitlab.com/privatetutor/projectlets/cs
+https://gitlab.com/RajaSrinivasan/csharp
