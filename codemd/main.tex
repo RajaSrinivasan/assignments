@@ -1,0 +1,168 @@
+
+\documentclass[12pt, a4paper]{article} 
+
+\usepackage[german,english]{babel} % English and German language 
+\usepackage{booktabs} % Horizontal rules in tables 
+% For generating tables, use “LaTeX” online generator (https://www.tablesgenerator.com)
+\usepackage{comment} % Necessary to comment several paragraphs at once
+\usepackage[utf8]{inputenc} % Required for international characters
+\usepackage[T1]{fontenc} % Required for output font encoding for international characters
+\usepackage{listings}
+
+\lstset{basicstyle=\linespread{0.8}\ttfamily\footnotesize,
+    xleftmargin=0.7cm,
+    frame=tlbr, framesep=0.2cm, framerule=0pt,
+}
+\lstset{frame=single}
+
+% Might be helpful
+\usepackage{amsmath,amsfonts,amsthm} % Math packages which might be useful for equations
+\usepackage{tikz} % For tikz figures (to draw arrow diagrams, see a guide how to use them)
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,arrows} % Adding libraries for arrows
+\usetikzlibrary{decorations.pathreplacing} % Adding libraries for decorations and paths
+\usepackage{tikzsymbols} % For amazing symbols ;) https://mirror.hmc.edu/ctan/graphics/pgf/contrib/tikzsymbols/tikzsymbols.pdf 
+\usepackage{blindtext} % To add some blind text in your paper
+
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage{XCharter} 
+\usepackage{fancyhdr} 
+\usepackage{geometry}
+
+\geometry{
+	top=1cm, % Defines top margin
+	bottom=2cm, % Defines bottom margin
+	left=2.2cm, % Defines left margin
+	right=2.2cm, % Defines right margin
+	includehead, % Includes space for a header
+	includefoot, % Includes space for a footer
+	%showframe, % Uncomment if you want to show how it looks on the page 
+}
+
+\setlength{\parindent}{15pt} 
+
+\linespread{1}
+
+\pagestyle{fancy} % Allows you to customize the headers and footers
+
+% Headers
+\lhead{} 
+\chead{\textit{Code Markdown}} % Define center header - e.g. add your paper title
+\rhead{} 
+
+% Footers
+\lfoot{codemd v0.1} % Define left footer
+\rfoot{\footnotesize Page \thepage} 
+\cfoot{ } % Define right footer
+
+\title{codemd - Code markdown for authoring} % Adds your title
+\author{Srini, rs@toprllc.com}
+\date{\small \today} 
+
+
+\begin{document}
+
+\maketitle 
+\setcounter{page}{1} 
+
+\section{Introduction} 
+
+This projectlet targets authors of blogs, articles and books myself included. When I like to illustrate a point, I like to show a segment of code and develop accompanying explanatory text. The annotation usually benefits from a line number reference of the example. While we can always extract the source code into the document, it becomes hard to track the original source. 
+
+Given sourcefile marked up with special commands, this tool is designed to generate graphic files corresponding to the lines of source code. The special commands are simple enough that including such directives is language agnostic - so it can be used with any programming language. Examples in \textbf{C++} and \textbf{Ada} included.
+
+\subsection{Learning Objectives}
+
+\paragraph{Graphic file generation from text}
+Generating a graphic file with primarily text is not too complicated yet will benefit from a suitable library. One of the interesting challenges in any such system is the coordinate system. For each line, the location of the line number, text etc need to be computed by the application.
+
+Portable Network Graphics - \textbf{png}\url{https://en.wikipedia.org/wiki/Portable_Network_Graphics} is a raster graphic format that is suitable for such applications. There are other formats such as \textbf{jpg}, \textbf{svg} that are suitable as well.
+
+The application has to choose a \textbf{font} to convert the text into the graphic. A truetype font will be an appropriate choice.
+
+\section{Specifications}
+
+A command line tool, this should enable generating graphics from a directory structure of source files and provide an option to add line numbers in the graphic file. Graphic files in the \textbf{png} format should be generated named for the original file and the fragment number within a source file.
+
+\subsection{Example directives - Markdown of the sources}
+
+A sample configuration for a project file is listed below.
+
+\begin{lstlisting}[caption=Example Source file in C]
+#include <stdio.h>
+#include <string>
+// codemd: begin
+int main(int argc, char **argv) {
+   int i ;
+   for (i=1; i<argc; i++) {
+       if (argv[i][0] == '-') {
+           printf("Found switch %s\n",argv[i]);
+       }
+   }
+}
+// codemd: end
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Example Source file in Ada]
+
+-- codemd: begin caption="Preliminaries"
+with Text_Io; use Text_Io ;
+with Ada.Command_Line ; use Text_Io ;
+-- codemd: end
+
+-- codemd: begin caption="Main procedure"
+procedure switch is
+begin
+    for arg in 1..Argument_Count
+    loop
+        if Argument(arg)(1..1) == '-'             -- codemd: callout
+        then
+           put("Found a Switch ");
+           put_line(Argument(arg));               -- codemd: callout
+    end loop ;
+end switch ;
+-- codemd: end
+\end{lstlisting}
+
+\subsection{codemd directives - described}
+
+As a file is scanned line by line, codemd searches for directives. When a line contains the keyword \textbf{codemd:} the line is searched for directives and options. Directives and options are case sensitive.
+
+Since codemd ignores all other markers, it is language agnostic. Directives are included in line comments appropriate for the language (Eg. \textbf{\#} for \textbf{Python} and \textbf{--} for \textbf{Ada}). 
+
+\paragraph{begin} Starts an illustrative section. Creates a graphic file. If a graphic file is currently open - implicitly closes it. Options for this directive are:
+
+\begin{itemize}
+    \item caption="string" provides a name for the caption. This option of the begin directive places the caption above the listing.
+\end{itemize}
+
+\paragraph{end} Ends the illustrative section. Closes the graphic file created earlier. There is an implicit end at the end of the file. The options for this directive are:
+\begin{itemize}
+    \item caption="string" provides a name for the caption. This option of the end directive places the caption below the listing.
+\end{itemize}
+
+\paragraph{skip} Very long procedures with a lot of details not relevant to a discussion could be eliminated from the graphic by using the skip directive. Any code fragments between \textbf{skip} and \textbf{skipend} will not be emitted to the graphic replaced by an ellipsis.
+
+\paragraph{skipend} terminates a skip block.
+
+\paragraph{break} this directive causes the currently active graphic file to close and a new one to open; numbered serially. Helps break long files into multiple graphic files for illustration. Line numbers if effective continue.
+If there is a caption in effect from the begin directive, the caption is repeated at the top of the new graphic file.
+
+\section{Implementation}
+
+\subsection{Libraries}
+\begin{itemize}
+    \item pngwriter library from \url{https://github.com/pngwriter/pngwriter.git}
+    \item boost library - \url{https://www.boost.org/} 
+\end{itemize}
+\fbox{%
+    \parbox{40em}{%
+    Implementation in \textbf{C++} \url{https://gitlab.com/cpp8/codemd.git}
+    }%
+}
+
+\end{document}
