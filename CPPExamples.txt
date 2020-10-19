@@ -23,3 +23,8 @@
    
 6. Code to graphic with markdown
    Repo: https://gitlab.com/cpp8/codemd.git
+   
+7. Project Cloner (In progress)
+   Repo: https://gitlab.com/cpp8/proj.git
+   Example template cli project:
+   Repo: https://gitlab.com/cpp8/cli.git
