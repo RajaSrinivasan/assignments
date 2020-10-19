@@ -9,6 +9,9 @@
 2. Project: Dump
    Repo: https://gitlab.com/cpp8/dump.git
    
+2a. Project: cli - A template command line util project. using boost.
+    Repo: https://gitlab.com/cpp8/cli.git
+   
 3. Project: Search
    Repo: https://gitlab.com/cpp8/search.git
    
@@ -20,3 +23,8 @@
    
 6. Code to graphic with markdown
    Repo: https://gitlab.com/cpp8/codemd.git
+   
+7. Project Cloner (In progress)
+   Repo: https://gitlab.com/cpp8/proj.git
+   Example template cli project:
+   Repo: https://gitlab.com/cpp8/cli.git
