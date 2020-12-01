@@ -3,6 +3,14 @@
    Environment: Linux, clang or g++, stdc++17 
    The projects are listed in the order of increasing complexity
 -------------------------------------------------------------------------------------------------------------
+   Development Environment:
+   I use a Raspberry PI 4 running Ubuntu 20.04 as my development environment for all these projects. From a 
+   laptop I use VS Code and use ssh to get to the Ubuntu system.
+   I try to minimize external dependencies except the following which are used in many projects :
+   - boost
+   - glib
+   Other libraries like image processing, protobuf, gRPC are used selectively for illustrative purposes.
+-------------------------------------------------------------------------------------------------------------   
 1. Project: Hello
    Repo: https://gitlab.com/cpp8/hello.git
    
