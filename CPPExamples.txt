@@ -48,3 +48,7 @@
       arbitrary bases - eg. binary, octal, hexadecimal + decimal for starters. But arbitrary bases such as 7 or 77 could be used. Peruse the code to 
       understand how different bases are represented in text form.
       
+   2. Project dsp:
+      Repo: https://gitlab.com/cpp8/thinkdsp.git
+      This is a C++ companion to learning Digital Signal Processing - unashamed copy of the ideas in ThinkDSP the book by Prof Downey.
+      
