@@ -1,0 +1,14 @@
+1. A sample http server using gorilla framework:
+   https://gitlab.com/projtemplates/go.git
+
+2. Code Examples - generate graphical view of sourcecode:
+   https://gitlab.com/RajaSrinivasan/codex.git
+   
+3. Explore random numbers:
+   https://gitlab.com/RajaSrinivasan/random.git
+   
+4. Command Executor:
+   https://gitlab.com/RajaSrinivasan/exec.git
+   
+5. Esoteric collection of utilities:
+   https://gitlab.com/privatetutor/projectlets/go.git
