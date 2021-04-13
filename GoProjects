@@ -12,3 +12,13 @@
    
 5. Esoteric collection of utilities:
    https://gitlab.com/privatetutor/projectlets/go.git
+   
+GUI examples using GTK and fyne for comparison :
+1. Snakes
+   git@bitbucket.org:ToprLLC/snakes.git
+   
+2. Puzzle - based on the "15" tiles
+   git@bitbucket.org:ToprLLC/puzzle.git
+   
+3. Curves - 
+   git@bitbucket.org:ToprLLC/curves.git
