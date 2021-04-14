@@ -13,6 +13,9 @@
 5. Esoteric collection of utilities:
    https://gitlab.com/privatetutor/projectlets/go.git
    
+6. Stream Socket to UDP socket gateway
+   https://github.com/RajaSrinivasan/strudpgw.git
+   
 GUI examples using GTK and fyne for comparison :
 1. Snakes
    git@bitbucket.org:ToprLLC/snakes.git
