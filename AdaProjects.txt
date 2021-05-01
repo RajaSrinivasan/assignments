@@ -1,2 +1,5 @@
 1. Stream Socket to UDP gateway
    https://gitlab.com/ada23/sockgw.git
+   
+2. A simple game - Cows and Bulls in player and dealer modes
+   https://gitlab.com/ada23/guess.git
