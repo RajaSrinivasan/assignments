@@ -3,3 +3,6 @@
    
 2. A simple game - Cows and Bulls in player and dealer modes
    https://gitlab.com/ada23/guess.git
+   
+3. Patterned after the above, this project is also a guessing game but with words.
+   https://gitlab.com/ada23/jotto.git   
