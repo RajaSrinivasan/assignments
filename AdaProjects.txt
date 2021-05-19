@@ -6,3 +6,6 @@
    
 3. Patterned after the above, this project is also a guessing game but with words.
    https://gitlab.com/ada23/jotto.git   
+   
+4. Mildly Thick binding to OpenSSL libraries
+   https://gitlab.com/ada23/sslada.git
