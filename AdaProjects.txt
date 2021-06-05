@@ -9,3 +9,7 @@
    
 4. Mildly Thick binding to OpenSSL libraries
    https://gitlab.com/ada23/sslada.git
+   
+5. Password Generator utility
+   https://gitlab.com/ada23/pwdgen.git
+   
