@@ -13,3 +13,6 @@
 5. Password Generator utility
    https://gitlab.com/ada23/pwdgen.git
    
+6. Personal Password Manager - leveraging both the above projectlets
+   https://gitlab.com/ada23/ppm.git
+   
