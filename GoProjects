@@ -16,6 +16,9 @@
 6. Stream Socket to UDP socket gateway
    https://github.com/RajaSrinivasan/strudpgw.git
    
+7. Secura Package Manager
+   https://github.com/RajaSrinivasan/spm
+   
 GUI examples using GTK and fyne for comparison :
 1. Snakes
    git@bitbucket.org:ToprLLC/snakes.git
