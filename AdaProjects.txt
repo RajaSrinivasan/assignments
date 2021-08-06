@@ -16,3 +16,9 @@
 6. Personal Password Manager - leveraging both the above projectlets
    https://gitlab.com/ada23/ppm.git
    
+7. Sudoku solver
+   https://gitlab.com/ada23/sudoku.git
+   
+8. Thinnish, Thickish binding to libsodium
+   https://gitlab.com/ada23/sodiumada.git
+   
