@@ -22,3 +22,6 @@
 8. Thinnish, Thickish binding to libsodium
    https://gitlab.com/ada23/sodiumada.git
    
+9. Secure Channel
+   A client server framework using the libsodium binding. An example project to build a site to generate a password:
+   https://gitlab.com/ada23/secchan.git
