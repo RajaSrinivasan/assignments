@@ -25,3 +25,8 @@
 9. Secure Channel
    A client server framework using the libsodium binding. An example project to build a site to generate a password:
    https://gitlab.com/ada23/secchan.git
+   
+10. Digital Signal Processing
+   An ada companion to ThinkDSP bt Allen B. Downey
+   https://gitlab.com/ada23/thinkdsp.git
+   
