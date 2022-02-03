@@ -32,4 +32,7 @@
    
 11. A basic command line template with subcommand processing examples
     https://gitlab.com/ada23/blog.git
+    
+12. Scrabblet - a spin on Scrabble. (Evolving)
+    https://gitlab.com/ada23/words.git
    
