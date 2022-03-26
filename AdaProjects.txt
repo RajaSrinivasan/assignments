@@ -19,7 +19,7 @@
 7. Sudoku solver
    https://gitlab.com/ada23/sudoku.git
    
-8. Thinnish, Thickish binding to libsodium
+8. Thinnish, Thickish binding to libsodium. Now converted to alire and has file encrypt, decrypt utilities.
    https://gitlab.com/ada23/sodiumada.git
    
 9. Secure Channel
