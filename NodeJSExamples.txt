@@ -1,0 +1,16 @@
+NodeJS - the most ubiquitous development tool can be a great addition to any toolset regardless of
+the preferred programming language. Brings a whole new perspective about "using the right tool for the
+right task". In this set of projectlets - mostly to supplement the main functionality of a project,
+are numerous practical examples and snippets.
+
+1. Sending email:
+
+https://gitlab.com/ada23/pwdgen.git
+
+Folder: mailer contains a snippet that sends a text file through email. In this context a set of passwords to use for the day.
+
+2. Simple Graphics and Image manipulation:
+
+https://gitlab.com/nodejs77/chessy.git
+
+Examples of using Canvas to generate a blank chess board and Jimp for placing chess pieces onto specific squares
