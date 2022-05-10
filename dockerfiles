@@ -1,0 +1,10 @@
+The following are helper dockerfiles to enable cross platform testing.
+
+https://ToprLLC@bitbucket.org/ToprLLC/docker.git
+
+Dockerfile - Starter based on ubuntu:latest with gnat, gprbuild, alr
+
+Available from dockerhub as vitarasrinivasan/ada
+
+    docker pull vitarasrinivasan/ada
+    
