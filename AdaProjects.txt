@@ -38,4 +38,7 @@
     
 12. Scrabblet - a spin on Scrabble. (Evolving)
     https://gitlab.com/ada23/words.git
+    
+13. Jobs - personal CI support tool
+    https://ToprLLC@bitbucket.org/ToprLLC/jobs.git
    
