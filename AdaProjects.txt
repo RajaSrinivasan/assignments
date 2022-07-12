@@ -41,4 +41,8 @@
     
 13. Jobs - personal CI support tool
     https://ToprLLC@bitbucket.org/ToprLLC/jobs.git
+    
+14. Flash - a flashcard like memory testing tool
+    https://codeberg.org/RajaSrinivasan/flash.git
+    This is a simple illustration of tasking primitives
    
