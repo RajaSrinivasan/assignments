@@ -1,0 +1,8 @@
+These are companions to other projects in flutter and dart. Primary goal being GUI experiments in general and in particular cross platform
+including ios, android targets.
+
+1. Simple recasting of the pwdbasic app in dart:
+
+https://bitbucket.org/ToprLLC/passwords.git - subdir dart
+
+2. 
