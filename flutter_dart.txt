@@ -5,4 +5,6 @@ including ios, android targets.
 
 https://bitbucket.org/ToprLLC/passwords.git - subdir dart
 
-2. 
+2. Beginner flutter project using the password generator. build for your favorite target (iOS, chrome, native desktop and so on)
+
+https://codeberg.org/RajaSrinivasan/pwdgen.git
