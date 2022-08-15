@@ -24,3 +24,14 @@ The goal is to string these assignments together in the form of a blog or text b
 
 I invite fellow lifelong learners to collaborate in building up a cache of solutions to these assignments. Since they are language and platform agnostic, multiple solutions will help the community. If you have an alternate solution, please create an issue in this project with a reference to your repo.
 
+# Working On
+
+## August 2022
+
+Current projectlet in dart is to:
+
+- generate a random numerical expression with random number values and simple operators - Add,Sub,Mult and Div
+- Show the expression on the screen for say 10 seconds and then clear it
+- User to provide an answer that is verified
+
+Once the basics are done, use flutter for the display and user entry operations
