@@ -8,3 +8,8 @@ https://bitbucket.org/ToprLLC/passwords.git - subdir dart
 2. Beginner flutter project using the password generator. build for your favorite target (iOS, chrome, native desktop and so on)
 
 https://codeberg.org/RajaSrinivasan/pwdgen.git
+
+3. Beginning of expression generator
+
+https://codeberg.org/RajaSrinivasan/numexpr.git
+
