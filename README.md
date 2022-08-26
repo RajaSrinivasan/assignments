@@ -26,6 +26,10 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 # Working On
 
+## Sept 2022
+
+Continuing on the same vein, this month I will convert the jotto implementation - in Ada to dart and subsequently add a GUI using flutter.
+
 ## August 2022
 
 Current projectlet in dart is to:
@@ -34,4 +38,5 @@ Current projectlet in dart is to:
 - Show the expression on the screen for say 10 seconds and then clear it
 - User to provide an answer that is verified
 
-Once the basics are done, use flutter for the display and user entry operations
+Initial implementation can be tested at https://rajasrinivasan.github.io/
+
