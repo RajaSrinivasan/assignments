@@ -9,7 +9,13 @@ https://bitbucket.org/ToprLLC/passwords.git - subdir dart
 
 https://codeberg.org/RajaSrinivasan/pwdgen.git
 
-3. Beginning of expression generator
+3. A numeric expression generator
 
-https://codeberg.org/RajaSrinivasan/numexpr.git
+https://codeberg.org/RajaSrinivasan/numexpr.git and a flutter project to generate a frontend at:
+https://codeberg.org/RajaSrinivasan/numexprgui.git
+
+The experimental webpage is available at github:
+
+https://rajasrinivasan.github.io/
+
 
