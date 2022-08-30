@@ -28,7 +28,10 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 ## Sept 2022
 
-Continuing on the same vein, this month I will convert the jotto implementation - in Ada to dart and subsequently add a GUI using flutter.
+Continuing on the same vein, this month I will convert the jotto implementation - in Ada to dart and subsequently add a GUI using flutter. Resulting website is deployed at :
+```
+https://jottogui.pages.dev/
+```
 
 ## August 2022
 
