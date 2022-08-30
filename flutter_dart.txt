@@ -18,4 +18,12 @@ The experimental webpage is available at github:
 
 https://rajasrinivasan.github.io/
 
+4. Jotto - a word game not unlike wordle except a lot harder. Visit the site:
+
+https://jottogui.pages.dev/#/
+
+The source code is at:
+
+https://codeberg.org/RajaSrinivasan/jottogui.git
+
 
