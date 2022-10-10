@@ -26,3 +26,8 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 # Working On
 
+## Oct 2022
+
+Experimentation with external tools for plotting. Starting with R. Idea is to leverage Open source platforms like R, Scilab, Octave etc for plotting.
+
+WIP available at: https://codeberg.org/RajaSrinivasan/plot.git
