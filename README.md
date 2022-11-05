@@ -26,6 +26,13 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 # Working On
 
+## Nov 2022
+
+Solution to the game Letterboxed from New York Times. One of the most tricky problems from a data structure standpoint. The solution is "brute force" 
+and thus potential for improvement.
+
+https://codeberg.org/RajaSrinivasan/letters.git
+
 ## Oct 2022
 
 Experimentation with external tools for plotting. Starting with R. Idea is to leverage Open source platforms like R, Scilab, Octave etc for plotting.
