@@ -28,10 +28,19 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 ## Nov 2022
 
+### Collage
+
+Thinnish binding to the ImageMagick library and a demo application for the same - a projectlet to create a collage of a given set of images.
+
+https://codeberg.org/RajaSrinivasan/collage.git
+
+### Letterboxed
+
 Solution to the game Letterboxed from New York Times. One of the most tricky problems from a data structure standpoint. The solution is "brute force" 
 and thus potential for improvement.
 
 https://codeberg.org/RajaSrinivasan/letters.git
+
 
 ## Oct 2022
 
