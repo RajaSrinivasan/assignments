@@ -45,4 +45,8 @@
 14. Flash - a flashcard like memory testing tool
     https://codeberg.org/RajaSrinivasan/flash.git
     This is a simple illustration of tasking primitives
+    
+15. Solver for the game Letterboxed from NY Times:
+    https://codeberg.org/RajaSrinivasan/letters.git
+    
    
