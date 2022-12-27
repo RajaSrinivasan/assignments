@@ -26,24 +26,10 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 # Working On
 
-## Nov 2022
+## Annual goal
 
-### Collage
+Goal is to publish **Learn programming through projectlets**
 
-Thinnish binding to the ImageMagick library and a demo application for the same - a projectlet to create a collage of a given set of images.
+## Jan 2023 - Exciting experiments with MQTT
 
-https://codeberg.org/RajaSrinivasan/collage.git
-
-### Letterboxed
-
-Solution to the game Letterboxed from New York Times. One of the most tricky problems from a data structure standpoint. The solution is "brute force" 
-and thus potential for improvement.
-
-https://codeberg.org/RajaSrinivasan/letters.git
-
-
-## Oct 2022
-
-Experimentation with external tools for plotting. Starting with R. Idea is to leverage Open source platforms like R, Scilab, Octave etc for plotting.
-
-WIP available at: https://codeberg.org/RajaSrinivasan/plot.git
+A new multi user puzzle game inspired by Jeopardy. Watch this space for the git repo.
