@@ -32,4 +32,10 @@ Goal is to publish **Learn programming through projectlets**
 
 ## Jan 2023 - Exciting experiments with MQTT
 
-A new multi user puzzle game inspired by Jeopardy. Watch this space for the git repo.
+A new multi user puzzle game inspired by Jeopardy. Starting with a binding to the mosquitto library.
+
+https://gitlab.com/ada23/pot.git
+
+
+
+
