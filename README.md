@@ -36,6 +36,16 @@ A new multi user puzzle game inspired by Jeopardy. Starting with a binding to th
 
 https://gitlab.com/ada23/pot.git
 
+### Progress
+
+Thin and thickish bindings available and basics of the puzzle game are available.
+
+## Abstraction, polymorphism and the like
+
+Basic software support for electrical circuits - leveraging strong typing yet be convenient for users.
+
+https://gitlab.com/ada23/phys.git
+
 
 
 
