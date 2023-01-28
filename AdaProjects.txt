@@ -48,5 +48,13 @@
     
 15. Solver for the game Letterboxed from NY Times:
     https://codeberg.org/RajaSrinivasan/letters.git
+
+16. Thin/Thickish binding to mosquitto library and a simple puzzle player.
+    https://gitlab.com/ada23/pot.git
     
+17. Simple arithmetic puzzle generator and solver.
+    https://gitlab.com/ada23/arith.git
+    
+18. Some basic ideas about solving physics problems - strong typing is the theme.
+    https://gitlab.com/ada23/phys.git
    
