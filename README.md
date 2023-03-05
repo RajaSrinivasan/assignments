@@ -28,23 +28,7 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 ## Annual goal
 
-Goal is to publish **Learn programming through projectlets**
-
-## Jan 2023 - Exciting experiments with MQTT
-
-A new multi user puzzle game inspired by Jeopardy. Starting with a binding to the mosquitto library.
-
-https://gitlab.com/ada23/pot.git
-
-### Progress
-
-Thin and thickish bindings available and basics of the puzzle game are available.
-
-## Abstraction, polymorphism and the like
-
-Basic software support for electrical circuits - leveraging strong typing yet be convenient for users.
-
-https://gitlab.com/ada23/phys.git
+Goal is to publish **Learn programming through projectlets**. Preliminary startup version available in this directory. Actively working on this. The flavor is mainly science and engineering. Ideas welcome.
 
 
 
