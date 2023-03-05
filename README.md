@@ -30,7 +30,7 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 Goal is to publish **Learn programming through projectlets**. Preliminary startup version available in this directory. Actively working on this. The flavor is mainly science and engineering. Ideas welcome.
 
-https://github.com/RajaSrinivasan/assignments/techada.pdf
+https://github.com/RajaSrinivasan/assignments/blob/master/techada.pdf
 
 
 
