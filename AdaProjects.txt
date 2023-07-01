@@ -66,3 +66,7 @@
 20. Resource Embedding - with compression:
     https://gitlab.com/ada23/fileres.git
     Uses zlib_ada crate from alr
+
+*****************************************Leveraging github actions to build projects***********************
+Setup for:
+1. letterboxed - moved repo 
