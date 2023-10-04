@@ -6,4 +6,4 @@
 
 ## GitLab
 
-  https://gitlab.com/ada23/pwdgen
+  https://gitlab.com/ada23/pwdgen.git
