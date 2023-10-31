@@ -6,4 +6,4 @@ simple examples. Not necessarily complete, particularly in the area of examples,
 
 ## GNU scientific library gsl Release 2.7
 
-https://gitlab.com:ada23/adagsl.git
+https://gitlab.com/ada23/adagsl.git
