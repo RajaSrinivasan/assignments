@@ -23,4 +23,5 @@ The primary learning objective is to utilize/explore the predefined language env
 
 Producing reports without the aid of any markup or word processing - still readable and comprehensible. 
 
+If you attempt a solution (in a language of your choice) and would like to offer your solution as a reference, create a PR for this file.
 
