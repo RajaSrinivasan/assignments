@@ -11,6 +11,8 @@ natural logarithm of arguments of 5 decimal digits. [Angles](https://www2.clarku
 
 ## Example
 
+[example implementation](https://gitlab.com/ada23/adagsl) has an Ada implementation for Sines. Others should be very similar
+
 ## Projectlet
 
 The goal of this projectlet is to generate the table of a trigonometric function such as Sine for angles of 0 to 360 to enable lookup with a granularity of minutes.
