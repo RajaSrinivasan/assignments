@@ -7,3 +7,10 @@ simple examples. Not necessarily complete, particularly in the area of examples,
 ## GNU scientific library gsl Release 2.7
 
 https://gitlab.com/ada23/adagsl.git
+
+## sndfile - library to read/write audio files like .wav
+
+https://gitlab.com/ada23/adasndfile.git
+
+This uses the adagsl.git as a submodule.
+
