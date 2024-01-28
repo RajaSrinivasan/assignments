@@ -8,9 +8,20 @@ simple examples. Not necessarily complete, particularly in the area of examples,
 
 https://gitlab.com/ada23/adagsl.git
 
+This library is also available as an alr crate:
+
+```
+alr with gsl
+```
+
 ## sndfile - library to read/write audio files like .wav
 
-https://gitlab.com/ada23/adasndfile.git
+https://gitlab.com/ada23/bindings/adasndfile.git
 
 This uses the adagsl.git as a submodule.
+
+## libflac - library to read/write flac files
+
+https://gitlab.com/ada23/bindings/libflac.git
+
 
