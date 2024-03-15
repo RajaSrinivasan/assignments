@@ -7,3 +7,4 @@
 ## GitLab
 
   https://gitlab.com/ada23/pwdgen.git
+  https://gitlab.com/ada23/digest.git
