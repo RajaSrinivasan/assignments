@@ -67,6 +67,10 @@
     https://gitlab.com/ada23/fileres.git
     Uses zlib_ada crate from alr
 
+21. Toolkit used as a submodule in quite a few projects
+
+[Adalib](https://gitlab.com/ada23/toolkit.git)
+
 *****************************************Leveraging github actions to build projects***********************
 Setup for:
 1. letterboxed - moved repo 
