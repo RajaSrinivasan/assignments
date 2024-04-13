@@ -6,8 +6,10 @@
 
 ## Raspberry PI
 
-### Basic Blink
+### Morse Code
 
-[Blink LED](https://gitlab.com/ada23/realtime/morse.git)
+[Morse code with LEDs](https://gitlab.com/ada23/realtime/morse.git)
+
+[Pushbutton monitoring](https://gitlab.com/ada23/realtime/button.git)
 
 ## STM32 Discovery
