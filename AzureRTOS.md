@@ -6,4 +6,4 @@ Following projects target the Renesas S7G2 - in particular the Starter Kit. Expl
 2. [Shell](https://gitlab.com/azurertos/eshell.git) - is basically the same except it adds support for a skeleton of a shell over UART.
 3. [Messaging](https://gitlab.com/azurertos/messaging.git) - use messaging instead of global variables for communication.
 4. [Check your reaction time](https://gitlab.com/azurertos/react.git) - a game of sorts similar to the Visual Field Test!
-5. [Built in components - crc](https://gitlab.com/azurertos/onboard.git) - crc of different blocks of RAM. Some dynamic, others static.
+5. [Built in components - crc](https://gitlab.com/azurertos/onboard.git) - crc of different blocks of RAM. Some dynamic, others static. Includes a project illustrating the use of the ADC. Read the board temperature and a voltage. This repo contains 2 projects int the same workspace.
