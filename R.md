@@ -6,4 +6,4 @@ In this set of projects, the tool R along with RStudio is used to illustrate suc
 
 An auxiliary goal is to introduce the many publicly available datasets - mostly related to healthcare.
 
-- [Physionet datasets](https://gitlab.com/r4870233/healthdb.git)
+- Cardiovascular data exploration - [Physionet datasets](https://gitlab.com/r4870233/healthdb.git)
