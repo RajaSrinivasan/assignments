@@ -32,6 +32,8 @@ Goal is to publish **Learn programming through projectlets**. Preliminary startu
 
 https://github.com/RajaSrinivasan/assignments/blob/master/techada.pdf
 
+Progress is slow but settled on [quarto](https://quarto.org) as the tool to take this to fruition. Here is a [preview](https://rsrinivasan.quarto.pub/techadabook/).
+
 
 
 
