@@ -26,13 +26,11 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 # Working On
 
-## Annual goal
+The book has reached a milestone - the first version is complete.
 
-Goal is to publish **Learn programming through projectlets**. Preliminary startup version available in this directory. Actively working on this. The flavor is mainly science and engineering. Ideas welcome.
+[The pdf version](https://github.com/RajaSrinivasan/assignments/blob/master/Ada-Skills-Sharpened.pdf) 
 
-https://github.com/RajaSrinivasan/assignments/blob/master/techada.pdf
-
-Progress is slow but settled on [quarto](https://quarto.org) as the tool to take this to fruition. Completed 10 chapters. 10 more to go. Here is a [preview](https://rsrinivasan.quarto.pub/techadabook/). Feedback welcome as an Issue in this repo.
+[Online version](https://rsrinivasan.quarto.pub/techadabook/). Feedback welcome as an Issue in this repo.
 
 
 
