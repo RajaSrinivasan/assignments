@@ -32,6 +32,11 @@ The book has reached a milestone - the first version is complete.
 
 [Online version](https://rsrinivasan.quarto.pub/techadabook/). Feedback welcome as an Issue in this repo.
 
+Revision 2 under construction - based on feedback. Also more annotations
+
+## Next major effort
+
+**DSP for Software Engineers** based on previous mini projects on this topic. Will continue to use Ada & Julia.
 
 
 
