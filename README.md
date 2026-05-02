@@ -26,17 +26,31 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 # Working On
 
+## Embedded Book
+
+Actively working on **Ada Embedded - STM32F4 Discovery edition**. The first part is available at:
+
+[Ada embedded - Part 1](https://rsrinivasan.quarto.pub)
+
+### Next major effort
+
+The above is heading towards this: 
+
+**DSP for Software Engineers** based on previous mini projects on this topic. Will continue to use Ada with R & Julia. 
+
+### Development Tools
+
+Increasingly, containers are proving to be an active part of development - particularly cross platform. So the DevOps library is growing with containers for basic engineering, book writing with quarto, and data analysis with R and Julia.
+
+https://gitlab.com/RajaSrinivasan/devops.git
+
+The dockerfiles are available in the repo above. Also images for arm and x86 targets are produced in the CI pipeline of this project. 
+
+## Skills book
+
 The book has reached a milestone - the first version is complete.
 
 [The pdf version](https://github.com/RajaSrinivasan/assignments/blob/master/Ada-Skills-Sharpened.pdf) 
 
-[Online version](https://rsrinivasan.quarto.pub/techadabook/). Feedback welcome as an Issue in this repo.
-
-Revision 2 under construction - based on feedback. Also more annotations
-
-## Next major effort
-
-**DSP for Software Engineers** based on previous mini projects on this topic. Will continue to use Ada & Julia.
-
-
+Feedback welcome as an Issue in this repo. Revision 2 under construction - based on feedback.
 
