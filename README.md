@@ -30,7 +30,11 @@ I invite fellow lifelong learners to collaborate in building up a cache of solut
 
 Actively working on **Ada Embedded - STM32F4 Discovery edition**. The first part is available at:
 
-[Ada embedded - Part 1](https://hello-276629.gitlab.io)
+[Ada embedded - STM32 Edition](https://rajasrinivasan.github.io/stm32adabook/)
+
+or
+
+[Ada embedded - STM32 Edition](https://hello-276629.gitlab.io)
 
 ### Next major effort
 
